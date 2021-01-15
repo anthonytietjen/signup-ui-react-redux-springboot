@@ -12,6 +12,8 @@ The pages and components use the Presentational and Container Component pattern 
 1. Not using PropTypes. Could specify the PropTypes or switch to TypeScript and use IProps interfaces.
 1. Using CSS. Could use Sass or a CSS-in-JS solution based on the project goals.
 1. Not using Code Splitting. Could add code splitting based on project size and goals.
+1. Very basic CSS used. Could add something like Bootstrap, invent own styles, etc, based on project needs.
+1. Not using responsive CSS. Could add media queries to make the CSS responsive.
 
 ## Running locally
 
