@@ -10,7 +10,7 @@ export const NewAccountView = () => (
 
     <div className="page-form new-account-form">
       <div className="form-field">
-        <label for="username">
+        <label htmlFor="username">
           User Name
         </label>
         <input
@@ -21,7 +21,7 @@ export const NewAccountView = () => (
       </div>
 
       <div className="form-field">
-        <label for="password">
+        <label htmlFor="password">
           Password
         </label>
         <input
@@ -32,7 +32,7 @@ export const NewAccountView = () => (
       </div>
 
       <div className="form-field">
-        <label for="confirm_password">
+        <label htmlFor="confirm_password">
           Confirm Password
         </label>
         <input

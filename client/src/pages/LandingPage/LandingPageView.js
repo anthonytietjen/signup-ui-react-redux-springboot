@@ -10,7 +10,7 @@ export const LandingPageView = () => (
 
     <div className="page-form landingpage-form">
       <div className="form-field">
-        <label for="investment_amount">
+        <label htmlFor="investment_amount">
           Investment Amount
         </label>
         <input
@@ -21,7 +21,7 @@ export const LandingPageView = () => (
       </div>
 
       <div className="form-field">
-        <label for="investment_type">
+        <label htmlFor="investment_type">
           Investment Type (eg. Bond, Stocks, Real Estate etc.)
         </label>
         <input
@@ -32,7 +32,7 @@ export const LandingPageView = () => (
       </div>
 
       <div className="form-field">
-        <label for="total_net_worth">
+        <label htmlFor="total_net_worth">
           Total Net Worth
         </label>
         <input
@@ -43,7 +43,7 @@ export const LandingPageView = () => (
       </div>
 
       <div className="form-field">
-        <label for="user_estimated_yearly_income">
+        <label htmlFor="user_estimated_yearly_income">
           User Estimated Yearly Income
         </label>
         <input
@@ -54,7 +54,7 @@ export const LandingPageView = () => (
       </div>
 
       <div className="form-field">
-        <label for="user_estimated_credit_score">
+        <label htmlFor="user_estimated_credit_score">
           User Estimated Credit Score
         </label>
         <input
