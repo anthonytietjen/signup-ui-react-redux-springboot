@@ -1,3 +1,5 @@
+import { doesApplicationQualify } from '../../utils/doesApplicationQualify'
+
 export const getMockApplicationResponse = (data) => {
   const qualificationCode = doesApplicationQualify(data)
 
