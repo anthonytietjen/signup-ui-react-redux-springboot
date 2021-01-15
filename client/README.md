@@ -14,6 +14,7 @@ The pages and components use the Presentational and Container Component pattern 
 1. Not using Code Splitting. Could add code splitting based on project size and goals.
 1. Very basic CSS used. Could add something like Bootstrap, invent own styles, etc, based on project needs.
 1. Not using responsive CSS. Could add media queries to make the CSS responsive.
+1. The New Account page can be accessed by browsing straight to the path. Should block that so users can't go straight to it without filling out the form on the landing page.
 
 ## Running locally
 

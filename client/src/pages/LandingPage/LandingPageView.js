@@ -8,7 +8,7 @@ export const LandingPageView = () => (
       Please fill out the form below.
     </div>
 
-    <div className="page-form">
+    <div className="page-form landingpage-form">
       <div className="form-field">
         <label for="investment_amount">
           Investment Amount
