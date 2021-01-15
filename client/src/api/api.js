@@ -2,7 +2,10 @@ import { getMockApplicationResponse } from './mockresponses/getMockApplicationRe
 
 export const submitApplication = (data) => {
   return new Promise((resolve, _reject) => {
-    const response = getMockApplicationResponse(data);
-    resolve(response)
+    // Simulate network delay
+    setTimeout(() => {
+      const response = getMockApplicationResponse(data);
+      resolve(response)
+    }, 1000)
   })
 }

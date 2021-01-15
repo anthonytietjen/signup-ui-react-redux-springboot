@@ -1,6 +1,6 @@
 import './LandingPage.css'
 
-export const LandingPageView = () => (
+export const LandingPageView = (props) => (
   <>
     <h1>Welcome</h1>
 
@@ -69,6 +69,7 @@ export const LandingPageView = () => (
           type="Submit"
           data-id="submit"
           className="btn-primary"
+          onClick={props.handleSubmit}
         >
           Submit
         </button>

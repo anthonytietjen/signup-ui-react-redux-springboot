@@ -20,6 +20,8 @@ The pages and components use the Presentational and Container Component pattern 
 1. Did not standardize on semicolons. Should decide whether to use semicolons or not, and set it up in the linter.
 1. Unit tests sit next to the file they test. Should decide whether to group them in dedicated folder, especially if something like SonarQube will be used.
 1. More tests should be added for the doesApplicationQualify function to cover more edge cases
+1. Not showing loading spinner when performing ajax calls
+1. Not using global state library. Consider using Context or Redux based on project needs.
 
 ## Running locally
 
