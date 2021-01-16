@@ -6,7 +6,10 @@ export const DisqualificationView = (props) => (
     <div className="page-intro-text">
       Unfortunately you do not qualify at this time. Please see reason below.
     </div>
-    <div className="page-form disqualification-reason">
+    <div
+      data-testid="message"
+      className="page-form disqualification-reason"
+    >
       {props.message}
     </div>
   </>
