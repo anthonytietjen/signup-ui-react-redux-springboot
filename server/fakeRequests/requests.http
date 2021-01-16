@@ -1,7 +1,10 @@
 POST http://localhost:8080/request HTTP/1.1
 content-type: application/json
-Accept: text/plain
 
 {
   "body": "hello world"
 }
+
+###
+
+POST http://localhost:8080/callback/1 HTTP/1.1
