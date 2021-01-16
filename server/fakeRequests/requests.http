@@ -18,3 +18,8 @@ content-type: application/json
   "status": "hello world",
   "detail": "foo bar"
 }
+
+###
+
+GET http://localhost:8080/status/1 HTTP/1.1
+content-type: application/json

@@ -3,6 +3,7 @@ package com.crowdstreettakehome.server;
 import java.util.UUID;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,17 @@ public class ServerApplication {
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void callback(@RequestBody CallbackPut request){
     //TODO Implement this
+  }
+
+  @GetMapping("/status/{id}")
+  public StatusResponse status(@PathVariable("id") String id){
+    //TODO Implement this
+    StatusResponse response = new StatusResponse();
+    response.status = "status goes here " + id;
+    response.detail = "detail goes here";
+    response.body = "body goes here";
+
+    return response;
   }
 
 }
