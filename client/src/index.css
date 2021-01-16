@@ -39,7 +39,15 @@ h1{
   margin-bottom: 4px;
 }
 
-input[type=text]{
+.form-error {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  color: red;
+  font-size: .8em;
+}
+
+input[type=text],
+input[type=number]{
   padding: 4px 8px;
   display:block;
   width: 100%;

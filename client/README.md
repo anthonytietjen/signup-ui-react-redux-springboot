@@ -20,6 +20,7 @@ The pages and components use the Presentational and Container Component pattern 
 1. Did not standardize on semicolons. Should decide whether to use semicolons or not, and set it up in the linter.
 1. Unit tests sit next to the file they test. Should decide whether to group them in dedicated folder, especially if something like SonarQube will be used.
 1. More tests should be added for the doesApplicationQualify function to cover more edge cases
+1. Currency fields use input type of number and aren't pretty. Could apply an input mask solution to add $ and commas.
 
 ## Running locally
 
