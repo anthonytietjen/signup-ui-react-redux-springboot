@@ -1,6 +1,6 @@
 import { getMockApplicationResponse } from './mockresponses/getMockApplicationResponse'
 
-export const submitApplication = (data) => {
+export const submitApplicationApi = (data) => {
   return new Promise((resolve, _reject) => {
     // Simulate network delay
     setTimeout(() => {

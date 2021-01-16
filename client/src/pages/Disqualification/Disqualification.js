@@ -1,11 +1,14 @@
 import { DisqualificationView } from "./DisqualificationView"
+import { useSelector } from 'react-redux'
 
 export const Disqualification = () => {
-  const reason = "Lorem ipsum dolor sit amet";
+  const { message } = useSelector(state => ({
+    message: state.disqualification.message
+  }))
 
   return (
     <DisqualificationView
-      reason={reason}
+      message={message}
     />
   )
 }

@@ -1,21 +1,22 @@
-import { submitApplication } from "../../api/api"
 import { LandingPageView } from "./LandingPageView"
 import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { submitApplication } from "../../actions/landingPageActions"
 
 export const LandingPage = (props) => {
   const history = useHistory()
+  const dispatch = useDispatch()
+  const { isSubmitting } = useSelector(state => ({
+    isSubmitting: state.landingPage.isSubmitting
+  }))
 
   const handleSubmit = async (data) => {
-    const response = await submitApplication(data)
-    if (response.status === 400) {
-      alert("Bad request")
-    } else {
-      history.push('/newaccount')
-    }
+    dispatch(submitApplication(data, history))
   }
 
   return (
     <LandingPageView
+      isSubmitting={isSubmitting}
       handleSubmit={handleSubmit}
     />
   )

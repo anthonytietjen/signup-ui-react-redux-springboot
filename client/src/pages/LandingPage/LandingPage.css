@@ -1,3 +1,12 @@
 .landingpage-form{
   max-width: 550px;
 }
+
+.btn-primary:disabled{
+  opacity: .5;
+  cursor: default;
+}
+
+.loading{
+  margin-left: 10px;
+}
