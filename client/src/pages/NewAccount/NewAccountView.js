@@ -1,6 +1,6 @@
 import './NewAccount.css'
 
-export const NewAccountView = () => (
+export const NewAccountView = (props) => (
   <>
     <h1>Congratulations</h1>
 
@@ -45,11 +45,20 @@ export const NewAccountView = () => (
       <div className="form-field">
         <button
           type="Submit"
-          data-id="submit"
+          data-testid="submit"
           className="btn-primary"
+          disabled={props.isSubmitting}
         >
           Submit
         </button>
+        {props.isSubmitting &&
+          <span
+            data-testid="loading"
+            className="loading"
+          >
+            Loading...
+          </span>
+        }
       </div>
     </div>
   </>
