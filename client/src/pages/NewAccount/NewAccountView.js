@@ -1,7 +1,6 @@
 import './NewAccount.css'
 import { useForm } from 'react-hook-form'
 
-const minPasswordLength = 8;
 const passwordFormatMessage = "Must be at least 8 characters and contain a number or special character";
 
 // http://emailregex.com/
