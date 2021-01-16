@@ -47,7 +47,8 @@ h1{
 }
 
 input[type=text],
-input[type=number]{
+input[type=number],
+input[type=password]{
   padding: 4px 8px;
   display:block;
   width: 100%;
