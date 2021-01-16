@@ -1,16 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { LandingPage } from './pages/LandingPage/LandingPage';
 import { NewAccount } from './pages/NewAccount/NewAccount';
 import { Disqualification } from './pages/Disqualification/Disqualification';
+import { Header } from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <img src={logo} className="logo" alt="logo" />
-      </header>
+      <Header />
       <main className="main">
         <Router>
           <Switch>
