@@ -1,10 +1,10 @@
 package com.crowdstreettakehome.server;
 
 import java.util.UUID;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +29,12 @@ public class ServerApplication {
   @PostMapping("/callback/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void callback(@PathVariable("id") String id){
+    //TODO Implement this
+  }
+
+  @PutMapping("/callback/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void callback(@RequestBody CallbackPut request){
     //TODO Implement this
   }
 
