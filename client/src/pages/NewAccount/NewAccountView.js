@@ -37,7 +37,7 @@ export const NewAccountView = (props) => {
             type="text"
             name="username"
             id="username"
-            data-id="username"
+            data-testid="username"
             maxLength={50}
             ref={register({
               required: true,
@@ -59,7 +59,7 @@ export const NewAccountView = (props) => {
             type="password"
             name="password"
             id="password"
-            data-id="password"
+            data-testid="password"
             ref={register({
               required: true,
               minLength: minPasswordLength,
@@ -81,7 +81,7 @@ export const NewAccountView = (props) => {
             type="password"
             name="passwordConfirm"
             id="confirm_password"
-            data-id="confirm_password"
+            data-testid="confirm_password"
             ref={register({
               required: true,
               minLength: minPasswordLength,
@@ -94,7 +94,10 @@ export const NewAccountView = (props) => {
             </div>
           }
           {(!errors.passwordConfirm && showPasswordMatchError()) &&
-            <div className="form-error">
+            <div
+              data-testid="error_passwords_dont_match"
+              className="form-error"
+            >
               Passwords don't match
             </div>
           }

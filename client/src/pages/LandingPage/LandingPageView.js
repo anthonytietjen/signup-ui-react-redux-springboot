@@ -23,7 +23,7 @@ export const LandingPageView = (props) => {
             type="number"
             name="investmentAmount"
             id="investment_amount"
-            data-id="investment_amount"
+            data-testid="investment_amount"
             ref={register({
               required: true
             })}
@@ -43,7 +43,7 @@ export const LandingPageView = (props) => {
             type="text"
             name="investmentType"
             id="investment_type"
-            data-id="investment_type"
+            data-testid="investment_type"
             maxLength={25}
             ref={register({
               required: true
@@ -64,7 +64,7 @@ export const LandingPageView = (props) => {
             type="number"
             name="netWorth"
             id="total_net_worth"
-            data-id="total_net_worth"
+            data-testid="total_net_worth"
             ref={register({
               required: true
             })}
@@ -84,7 +84,7 @@ export const LandingPageView = (props) => {
             type="number"
             name="yearlyIncome"
             id="user_estimated_yearly_income"
-            data-id="user_estimated_yearly_income"
+            data-testid="user_estimated_yearly_income"
             ref={register({
               required: true
             })}
@@ -104,7 +104,7 @@ export const LandingPageView = (props) => {
             type="number"
             name="creditScore"
             id="user_estimated_credit_score"
-            data-id="user_estimated_credit_score"
+            data-testid="user_estimated_credit_score"
             ref={register({
               min: creditMin,
               max: creditMax
