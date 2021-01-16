@@ -67,7 +67,7 @@ export const LandingPageView = (props) => (
       <div className="form-field">
         <button
           type="Submit"
-          data-id="submit"
+          data-testid="submit"
           className="btn-primary"
           onClick={props.handleSubmit}
           disabled={props.isSubmitting}
@@ -75,7 +75,10 @@ export const LandingPageView = (props) => (
           Submit
         </button>
         {props.isSubmitting &&
-          <span className="loading">
+          <span
+            data-testid="loading"
+            className="loading"
+          >
             Loading...
           </span>
         }
