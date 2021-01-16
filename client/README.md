@@ -22,6 +22,7 @@ The pages and components use the Presentational and Container Component pattern 
 1. More tests should be added for the doesApplicationQualify function to cover more edge cases
 1. Currency fields use input type of number and aren't pretty. Could apply an input mask solution to add $ and commas.
 1. Minimal unit testing on forms. Should add tests for different field validation states.
+1. Password validation regex checks for a minimum of 8 characters including a number, but doesn't account for the "or a special character" requirement. Should be updated to meet actual requiremetns.
 
 ## Running locally
 

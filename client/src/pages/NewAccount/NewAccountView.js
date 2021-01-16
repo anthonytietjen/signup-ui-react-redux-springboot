@@ -4,15 +4,14 @@ import { useForm } from 'react-hook-form'
 const minPasswordLength = 8;
 const passwordFormatMessage = "Must be at least 8 characters and contain a number or special character";
 
+// http://emailregex.com/
+const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+// https://stackoverflow.com/a/24644344
+const passwordRegEx = /^(?=.*\d).{8,}$/
+
 export const NewAccountView = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
-
-  // http://emailregex.com/
-  const emailRegEx = 	
-  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-  // TODO: Apply the real regex
-  const passwordRegEx = /^[A-za-z]+$/i
 
   const showPasswordMatchError = () => {
     const password = watch("password")
@@ -63,7 +62,6 @@ export const NewAccountView = (props) => {
             data-testid="password"
             ref={register({
               required: true,
-              minLength: minPasswordLength,
               pattern: passwordRegEx
             })}
           />
@@ -85,7 +83,6 @@ export const NewAccountView = (props) => {
             data-testid="confirm_password"
             ref={register({
               required: true,
-              minLength: minPasswordLength,
               pattern: passwordRegEx
             })}
           />
