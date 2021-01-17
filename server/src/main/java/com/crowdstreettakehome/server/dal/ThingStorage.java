@@ -5,8 +5,6 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
-import com.crowdstreettakehome.server.dto.ThingDTO;
-
 public class ThingStorage {
   private static Hashtable<String, ThingDTO> storage;
 
@@ -15,5 +13,13 @@ public class ThingStorage {
       storage = new Hashtable<String, ThingDTO>();
     }
     return storage;
+  }
+
+  public static ArrayList<ThingDTO> dumpAsList(){
+    ArrayList<ThingDTO> list = new ArrayList<ThingDTO>();
+    for(Entry<String, ThingDTO> entry : getStorage().entrySet()){
+      list.add(entry.getValue());
+    }
+    return list;
   }
 }

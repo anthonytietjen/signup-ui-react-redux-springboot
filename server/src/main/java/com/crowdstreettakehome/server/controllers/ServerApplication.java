@@ -1,5 +1,6 @@
 package com.crowdstreettakehome.server;
 
+import java.util.ArrayList;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,6 +53,12 @@ public class ServerApplication {
     thingDTO.status = thing.getStatus();
     thingDTO.detail = thing.getDetail();
     return thingDTO;
+  }
+
+  @GetMapping("/dump")
+  public ArrayList<ThingDTO> dump(){
+    ArrayList<ThingDTO> dump = ThingStorage.dumpAsList();
+    return dump;
   }
 
 }

@@ -22,4 +22,8 @@ content-type: application/json
 ###
 
 GET http://localhost:8080/status/{{$dotenv ID}} HTTP/1.1
-content-type: application/json
+
+###
+
+GET http://localhost:8080/dump HTTP/1.1
+
