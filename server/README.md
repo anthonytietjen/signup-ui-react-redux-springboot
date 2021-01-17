@@ -17,6 +17,16 @@ The server is a java app using `spring boot`.
 1. Install AdoptOpenJDK 11 - https://adoptopenjdk.net/
 
 ### Running dev server
-1. cd ./server
 1. **MacOS/Linux**: ./mvnw spring-boot:run
 1. **Windows**: mvnw spring-boot:run
+
+### Running unit tests
+1. **MacOS/Linux**: ./mvnw test
+1. **Windows**: mvnw test
+
+### Invoking endpoints running locally
+1. Install `humao.rest-client` for Visual Studio Code
+1. Using Visual Studio Code, open `/fakeRequests/requests.http`
+1. Click `Send Request` above the first request
+1. Take the id from the response of the first request and put it into a file called `.env` in the `/fakeRequests` folder using this format: `ID={ID}`
+1. Now you can click `Send Request` on any of the other requests and it will use the ID from the `.env` file

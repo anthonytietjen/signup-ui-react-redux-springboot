@@ -45,14 +45,13 @@ public class ThingController {
   }
 
   @GetMapping("/status/{id}")
-  public ThingDTO status(@PathVariable("id") String id){
+  public StatusResponse status(@PathVariable("id") String id){
     Thing thing = Thing.getById(id);
-    ThingDTO thingDTO = new ThingDTO();
-    thingDTO.id = thing.getId();
-    thingDTO.body = thing.getBody();
-    thingDTO.status = thing.getStatus();
-    thingDTO.detail = thing.getDetail();
-    return thingDTO;
+    StatusResponse response = new StatusResponse();
+    response.body = thing.getBody();
+    response.status = thing.getStatus();
+    response.detail = thing.getDetail();
+    return response;
   }
 
   @GetMapping("/dump")
