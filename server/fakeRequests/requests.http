@@ -2,24 +2,24 @@ POST http://localhost:8080/request HTTP/1.1
 content-type: application/json
 
 {
-  "body": "hello world"
+  "body": "body goes here"
 }
 
 ###
 
-POST http://localhost:8080/callback/1 HTTP/1.1
+POST http://localhost:8080/callback/{{$dotenv ID}} HTTP/1.1
 
 ###
 
-PUT http://localhost:8080/callback/1 HTTP/1.1
+PUT http://localhost:8080/callback/{{$dotenv ID}} HTTP/1.1
 content-type: application/json
 
 {
-  "status": "hello world",
-  "detail": "foo bar"
+  "status": "PROCESSED",
+  "detail": "detail goes here"
 }
 
 ###
 
-GET http://localhost:8080/status/1 HTTP/1.1
+GET http://localhost:8080/status/{{$dotenv ID}} HTTP/1.1
 content-type: application/json

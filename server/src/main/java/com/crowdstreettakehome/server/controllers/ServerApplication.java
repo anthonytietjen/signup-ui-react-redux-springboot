@@ -1,6 +1,5 @@
 package com.crowdstreettakehome.server;
 
-import java.util.UUID;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,32 +21,37 @@ public class ServerApplication {
 
 	@PostMapping("/request")
 	public String request(@RequestBody PostRequest request){
-    String id = UUID.randomUUID().toString();
-    //TODO Implement this
-		return id;
+    Thing thing = new Thing(request.body);
+    thing.Save();
+		return thing.getId();
   }
 
   @PostMapping("/callback/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void callback(@PathVariable("id") String id){
-    //TODO Implement this
+    Thing thing = Thing.getById(id);
+    thing.setStatus("STARTED"); //TODO Get text from body
+    thing.Save();
   }
 
   @PutMapping("/callback/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void callback(@RequestBody CallbackPut request){
-    //TODO Implement this
+  public void callback(@PathVariable("id") String id, @RequestBody CallbackPut request){
+    Thing thing = Thing.getById(id);
+    thing.setStatus(request.status);
+    thing.setDetail(request.detail);
+    thing.Save();
   }
 
   @GetMapping("/status/{id}")
-  public StatusResponse status(@PathVariable("id") String id){
-    //TODO Implement this
-    StatusResponse response = new StatusResponse();
-    response.status = "status goes here " + id;
-    response.detail = "detail goes here";
-    response.body = "body goes here";
-
-    return response;
+  public ThingDTO status(@PathVariable("id") String id){
+    Thing thing = Thing.getById(id);
+    ThingDTO thingDTO = new ThingDTO();
+    thingDTO.id = thing.getId();
+    thingDTO.body = thing.getBody();
+    thingDTO.status = thing.getStatus();
+    thingDTO.detail = thing.getDetail();
+    return thingDTO;
   }
 
 }
