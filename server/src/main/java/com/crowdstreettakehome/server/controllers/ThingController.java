@@ -14,10 +14,10 @@ import org.springframework.http.HttpStatus;
 
 @SpringBootApplication
 @RestController
-public class ServerApplication {
+public class ThingController {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ServerApplication.class, args);
+		SpringApplication.run(ThingController.class, args);
 	}
 
 	@PostMapping("/request")
