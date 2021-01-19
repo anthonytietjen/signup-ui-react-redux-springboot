@@ -12,5 +12,11 @@ export const DisqualificationView = (props) => (
     >
       {props.message}
     </div>
+    <div className="page-intro-text">
+      To contact customer service, please call 
+      <span data-testid="phone_number">
+        {props.phoneNumber}
+      </span>.
+    </div>
   </>
 )
