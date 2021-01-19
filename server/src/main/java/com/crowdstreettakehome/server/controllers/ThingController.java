@@ -50,14 +50,14 @@ public class ThingController {
 
   @PostMapping("/callback/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void callback(@PathVariable("id") String id){
+  public void callback(@PathVariable("id") String id, @RequestBody String status){
     //TODO: Consider error handling for:
     // - if the id in the request isn't in the store
-    // - if the body in the request is an un-allowed value
+    // - if the status in the request is an un-allowed value
     // - if Save fails
     // - etc.
     Thing thing = Thing.getById(id);
-    thing.setStatus("STARTED"); //TODO Get text from body
+    thing.setStatus(status);
     thing.updateTimeStamp();
     thing.save();
   }

@@ -9,6 +9,8 @@ content-type: application/json
 
 POST http://localhost:8080/callback/{{$dotenv ID}} HTTP/1.1
 
+STARTED
+
 ###
 
 PUT http://localhost:8080/callback/{{$dotenv ID}} HTTP/1.1

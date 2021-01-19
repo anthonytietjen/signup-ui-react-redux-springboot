@@ -38,7 +38,7 @@ class ThingControllerTests {
     assertThat(statusResponse.timeStampUpdatedUTC).isEqualTo(null);
 
     // POST /callback/{id}
-    controller.callback(id);
+    controller.callback(id, "STARTED");
     statusResponse = controller.status(id);
     assertThat(statusResponse.status).isEqualTo(status1);
     assertThat(statusResponse.detail).isEqualTo(null);
@@ -47,7 +47,6 @@ class ThingControllerTests {
     timeStampUpdated1 = statusResponse.timeStampUpdatedUTC;
 
     // PUT /callback/{id}
-    controller.callback(id);
     CallbackPut callbackPut = new CallbackPut();
     callbackPut.status = status2;
     callbackPut.detail = detail;
