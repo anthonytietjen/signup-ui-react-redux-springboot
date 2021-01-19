@@ -1,5 +1,6 @@
 package com.crowdstreettakehome.server.bll;
 
+import java.time.Instant;
 import java.util.Dictionary;
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ public class Thing {
     this.dto = new ThingDTO();
     this.dto.id = UUID.randomUUID().toString();
     this.dto.body = body;
+    this.dto.timeStampCreatedUTC = Instant.now().toString();
   }
 
   public Thing(ThingDTO thingDTO){
@@ -39,6 +41,10 @@ public class Thing {
     ThirdPartyThingDTO thirdPartyThingDTO = new ThirdPartyThingDTO(this.dto.body, callbackPath);
     Boolean success = thirdPartyApi.PostThirdPartyThing(thirdPartyThingDTO);
     return success;
+  }
+
+  public void updateTimeStamp(){
+    this.dto.timeStampUpdatedUTC = Instant.now().toString();
   }
   //endregion Action methods
 
@@ -70,6 +76,14 @@ public class Thing {
 
   public String getStatus(){
     return this.dto.status;
+  }
+
+  public String getTimeStampCreatedUTC(){
+    return this.dto.timeStampCreatedUTC;
+  }
+
+  public String getTimeStampUpdatedUTC(){
+    return this.dto.timeStampUpdatedUTC;
   }
   //endregion Getters and Setters
 }

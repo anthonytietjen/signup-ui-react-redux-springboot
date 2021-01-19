@@ -28,6 +28,7 @@ public class ThingController {
 		SpringApplication.run(ThingController.class, args);
 	}
 
+  //region Controller actions
 	@PostMapping("/request")
 	public String request(@RequestBody PostRequest request){
     //TODO: Consider error handling for:
@@ -52,10 +53,12 @@ public class ThingController {
   public void callback(@PathVariable("id") String id){
     //TODO: Consider error handling for:
     // - if the id in the request isn't in the store
+    // - if the body in the request is an un-allowed value
     // - if Save fails
     // - etc.
     Thing thing = Thing.getById(id);
     thing.setStatus("STARTED"); //TODO Get text from body
+    thing.updateTimeStamp();
     thing.save();
   }
 
@@ -64,11 +67,13 @@ public class ThingController {
   public void callback(@PathVariable("id") String id, @RequestBody CallbackPut request){
     //TODO: Consider error handling for:
     // - if the parameters in the request are missing or invalid
+    // - if the status in the request is an un-allowed value
     // - if Save fails
     // - etc.
     Thing thing = Thing.getById(id);
     thing.setStatus(request.status);
     thing.setDetail(request.detail);
+    thing.updateTimeStamp();
     thing.save();
   }
 
@@ -78,10 +83,7 @@ public class ThingController {
     // - if a record for the given id isn't in the store
     // - etc.
     Thing thing = Thing.getById(id);
-    StatusResponse response = new StatusResponse();
-    response.body = thing.getBody();
-    response.status = thing.getStatus();
-    response.detail = thing.getDetail();
+    StatusResponse response = buildStatusResponseFromThingDTO(thing);
     return response;
   }
 
@@ -92,5 +94,18 @@ public class ThingController {
     ArrayList<ThingDTO> dump = ThingStorage.dumpAsList();
     return dump;
   }
+  //endregion Controller actions
+
+  //region Utility methods
+  private StatusResponse buildStatusResponseFromThingDTO (Thing thing){
+    StatusResponse response = new StatusResponse();
+    response.body = thing.getBody();
+    response.status = thing.getStatus();
+    response.detail = thing.getDetail();
+    response.timeStampCreatedUTC = thing.getTimeStampCreatedUTC();
+    response.timeStampUpdatedUTC = thing.getTimeStampUpdatedUTC();
+    return response;
+  }
+  //endregion Utility methods
 
 }
