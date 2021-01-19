@@ -1,28 +1,20 @@
 # Client
 
-## Description
+## Documentation
 
-The client is a React app using `create-react-app`.
+* This is a React app that was bootstrapped using `create-react-app`.
 
-The pages and components use the Presentational and Container Component pattern to separate logic from view code.
+* The pages use the Presentational and Container Component pattern to separate logic from view code. Views can be tested independently from the container components.
 
-## Shortcuts taken
-1. Did not set up eslint.
-1. Using JavaScript. Could switch to TypeScript or Flow based on project goals.
-1. Not using PropTypes. Could specify the PropTypes or switch to TypeScript and use IProps interfaces.
-1. Using CSS. Could use Sass or a CSS-in-JS solution based on the project goals.
-1. Not using Code Splitting. Could add code splitting based on project size and goals.
-1. Very basic CSS used. Could add something like Bootstrap, invent own styles, etc, based on project needs.
-1. Not using responsive CSS. Could add media queries to make the CSS responsive.
-1. The New Account page can be accessed by browsing straight to the path. Should block that so users can't go straight to it without filling out the form on the landing page.
-1. Not displaying error if ajax fails. Should show some UI feedback when ajax calls fail.
-1. Data being passed around is not typed. Should use JSDocs, TypeScript or Flow to define types.
-1. Did not standardize on semicolons. Should decide whether to use semicolons or not, and set it up in the linter.
-1. Unit tests sit next to the file they test. Should decide whether to group them in dedicated folder, especially if something like SonarQube will be used.
-1. More tests should be added for the doesApplicationQualify function to cover more edge cases
-1. Currency fields use input type of number and aren't pretty. Could apply an input mask solution to add $ and commas.
-1. Minimal unit testing on forms. Should add tests for different field validation states.
-1. Password validation regex checks for a minimum of 8 characters including a number, but doesn't account for the "or a special character" requirement. Should be updated to meet actual requiremetns.
+* Redux is used for global state management. Thunk is used for allowing for asyncronous functionality inside the Redux actions.
+
+* The pages go in the `/src/pages` folder. The reusable components go in the `/src/components` folder.
+
+* Unit tests sit next to the files that they test. An alternative would be to move them all into a `__tests__` folder in case we plan on adding something like SonarQube which wants to know where the one "tests" folder is located.
+
+* Styling is done using CSS. Alternatives could include Sass or a CSS-in-JS solution like EmotionJS.
+
+* JavaScript is the primary language. Alternatively we could introduce static typing to help reduce bugs by switching to TypeScript or adding support for Flow.
 
 ## Running locally
 
@@ -30,6 +22,24 @@ The pages and components use the Presentational and Container Component pattern 
 1. Install Node 14.x - https://nodejs.org
 
 ### Running localhost dev server
-1. cd ./client
 1. npm install
 1. npm start
+
+
+## Running unit tests
+1. npm test
+
+## Shortcuts taken
+1. Did not set up eslint.
+1. Did not specify PropTypes. Could specify the PropTypes or switch to TypeScript and use IProps interfaces.
+1. Did not introduce Code Splitting. Could add code splitting based on project size and goals.
+1. Used very basic CSS. Could add something like Bootstrap or invent own styles or component library based on project needs.
+1. Did not use responsive CSS. Could add media queries to make the CSS responsive.
+1. The New Account page and the Disqualification page can be accessed by browsing straight to the `/newaccount` or `/disqualification` path. Should block those so users can't go straight to them without filling out the form on the landing page.
+1. Not displaying UI feedback if AJAX calls fail.
+1. Data being passed around is not typed. Could use JSDocs, TypeScript or Flow to define types to help reduce bugs.
+1. Did not standardize on semicolons. Should decide whether or not to require semicolons, and set up that rule in a linter.
+1. More tests should be added for the doesApplicationQualify function to cover more edge cases
+1. Currency fields use input type of number and do not show a dollar sign. Could make it more user-friendly by applying an input mask solution to add the $ symbold and commas to the input fields.
+1. Minimal unit testing on forms. Should add tests for different field validation states.
+1. The password validation regex checks for a minimum of 8 characters including a number, but doesn't account for the "or a special character" requirement. Should be updated to meet actual requirements.
