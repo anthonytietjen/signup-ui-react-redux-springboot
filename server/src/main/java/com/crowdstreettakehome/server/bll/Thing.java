@@ -15,10 +15,13 @@ public class Thing {
 
   //region Constructors
   public Thing(String body){
+    String timeStamp = Instant.now().toString();;
+
     this.dto = new ThingDTO();
     this.dto.id = UUID.randomUUID().toString();
     this.dto.body = body;
-    this.dto.timeStampCreatedUTC = Instant.now().toString();
+    this.dto.timeStampCreatedUTC = timeStamp;
+    this.dto.timeStampUpdatedUTC = timeStamp;
   }
 
   public Thing(ThingDTO thingDTO){

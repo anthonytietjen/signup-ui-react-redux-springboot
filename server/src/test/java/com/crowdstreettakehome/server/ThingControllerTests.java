@@ -25,26 +25,28 @@ class ThingControllerTests {
     StatusResponse statusResponse;
     String timeStampUpdated1;
     String timeStampUpdated2;
+    String timeStampUpdated3;
 
     // POST /request
     PostRequest postRequest = new PostRequest();
     postRequest.body = body;
     id = controller.request(postRequest);
     statusResponse = controller.status(id);
+    timeStampUpdated1 = statusResponse.timeStampUpdatedUTC;
     assertThat(statusResponse.status).isEqualTo(null);
     assertThat(statusResponse.detail).isEqualTo(null);
     assertThat(statusResponse.body).isEqualTo(body);
     assertThat(statusResponse.timeStampCreatedUTC).isNotEqualTo(null);
-    assertThat(statusResponse.timeStampUpdatedUTC).isEqualTo(null);
+    assertThat(timeStampUpdated1).isEqualTo(statusResponse.timeStampCreatedUTC);
 
     // POST /callback/{id}
     controller.callback(id, "STARTED");
     statusResponse = controller.status(id);
+    timeStampUpdated2 = statusResponse.timeStampUpdatedUTC;
     assertThat(statusResponse.status).isEqualTo(status1);
     assertThat(statusResponse.detail).isEqualTo(null);
     assertThat(statusResponse.body).isEqualTo(body);
-    assertThat(statusResponse.timeStampUpdatedUTC).isNotEqualTo(null);
-    timeStampUpdated1 = statusResponse.timeStampUpdatedUTC;
+    assertThat(timeStampUpdated2).isNotEqualTo(timeStampUpdated1);
 
     // PUT /callback/{id}
     CallbackPut callbackPut = new CallbackPut();
@@ -52,12 +54,11 @@ class ThingControllerTests {
     callbackPut.detail = detail;
     controller.callback(id, callbackPut);
     statusResponse = controller.status(id);
+    timeStampUpdated3 = statusResponse.timeStampUpdatedUTC;
     assertThat(statusResponse.status).isEqualTo(status2);
     assertThat(statusResponse.detail).isEqualTo(detail);
     assertThat(statusResponse.body).isEqualTo(body);
-    assertThat(statusResponse.timeStampUpdatedUTC).isNotEqualTo(null);
-    timeStampUpdated2 = statusResponse.timeStampUpdatedUTC;
-    assertThat(timeStampUpdated2).isNotEqualTo(timeStampUpdated1);
+    assertThat(timeStampUpdated3).isNotEqualTo(timeStampUpdated2);
   }
 
 }
