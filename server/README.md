@@ -32,3 +32,11 @@
 1. The `Thing` BLL class is tightly coupled to the storage medium defined in the DAL. Should abstract the DAL layer even further so that BLL won't know what the actual storage medium is.
 1. Response headers should be added for extra security (Access-Control-Allow-Origin, Strict-Transport-Security)
 1. Depending on the server used, we should remove the X-Powered-By header (if it is added automatically by the server) for security reasons.
+
+## API Documentation
+|Endpoint|Method|Parameters|Status Code|Response Type|
+|---|---|---|---|---|
+|/request|POST|{body: String}|200|String|
+|/callback/{id}|POST|String|204|_empty_|
+|/callback/{id}|PUT|{<br>status: String,<br>detail: string<br>}|204|_empty_|
+|/status|GET|id|200|{<br>status: String,<br>detail: string,<br>body: String,<br>timeStampCreatedUTC: String,<br>timeStampUpdatedUTC: String<br>}|
