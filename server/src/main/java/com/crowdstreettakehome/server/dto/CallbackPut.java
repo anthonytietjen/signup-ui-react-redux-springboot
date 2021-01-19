@@ -1,4 +1,4 @@
-package com.crowdstreettakehome.server;
+package com.crowdstreettakehome.server.dto;
 
 public class CallbackPut {
   public String status;

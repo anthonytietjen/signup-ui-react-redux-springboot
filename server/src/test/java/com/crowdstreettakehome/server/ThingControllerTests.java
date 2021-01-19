@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.crowdstreettakehome.server.dto.CallbackPut;
+import com.crowdstreettakehome.server.dto.PostRequest;
+import com.crowdstreettakehome.server.dto.StatusResponse;
+
 @SpringBootTest
 class ThingControllerTests {
 

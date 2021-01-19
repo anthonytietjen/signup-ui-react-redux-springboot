@@ -1,8 +1,10 @@
-package com.crowdstreettakehome.server;
+package com.crowdstreettakehome.server.bll;
 
 import java.util.Dictionary;
 import java.util.UUID;
 
+import com.crowdstreettakehome.server.dal.ThingStorage;
+import com.crowdstreettakehome.server.dto.ThingDTO;
 import com.crowdstreettakehome.server.dto.ThirdPartyThingDTO;
 import com.crowdstreettakehome.server.thirdpartyapi.ThirdPartyApi;
 
