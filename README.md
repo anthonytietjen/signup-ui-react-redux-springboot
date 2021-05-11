@@ -1,6 +1,8 @@
 # CrowdStreetTakeHome
 
-This is the root folder for the CrowdStreetTakeHome project.
+Signup UI using React and Redux on the frontend.
+
+Example Third Party API access on the backend using Java Springboot.
 
 See more details in the README files for the `client` or the `server` in their respective folders.
 
