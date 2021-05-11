@@ -1,4 +1,4 @@
-# CrowdStreetTakeHome
+# Signup UI
 
 Signup UI using React and Redux on the frontend.
 
