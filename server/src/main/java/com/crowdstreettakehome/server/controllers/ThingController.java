@@ -1,4 +1,4 @@
-package com.crowdstreettakehome.server;
+package com.crowdstreettakehome.server.controllers;
 
 import java.util.ArrayList;
 
